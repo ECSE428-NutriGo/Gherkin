@@ -4,13 +4,22 @@ As a NutriGo user
 I would like to set a target goal for different macronutrients
 So that I may work towards certain diet goals 
 
-Scenario: NutriGo User Sets Target Amount of Protein (Normal Flow)
+Scenario: NutriGo User Sets Target Amount of Macronutrients (Normal Flow)
 
 Given a NutriGo user is logged into the application
-When the user selects an existing macronutrient
-And the user enters a positive value
-And the user selects an existing metric for the nutrient
-Then the target macronutrient value is set to this new value
+When the user sets values for existing macronutrients
+And the user enters positive values
+And the user selects existing metrics for the nutrients
+Then each target macronutrient value is set to its selected new value
+And a "Successfully edited macronutrient values" message is issued
+
+Scenario: NutriGo User Attempts to edit a single macronutrient (Alternate flow)
+
+Given a NutriGo user is logged into the application
+And has navigated to the edit goals page
+When the user enters a new value for a single macronutrient
+And the user saves the updated settings
+Then the system saves the new value in the database
 And a "Successfully edited macronutrient value" message is issued
 
 Scenario: NutriGo User Attempts to edit a macronutrient without providing a macronutrient name (Error Flow)
