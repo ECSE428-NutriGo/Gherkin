@@ -12,6 +12,16 @@ And the user associates existing food items
 Then a new meal is created
 And a "Succesfully created a meal" message is issued
 
+Scenario: Create a new meal without meal items (Alternate flow)
+
+Given NutriGo user is logged into the application
+And has naviated to the new meal page
+When the user enters the meal title
+And enters the macronutrient values for the meal
+And the user submits the form
+Then a new meal is created
+And a "Successfully created a meal" message is issued
+
 Scenario: User attempts to create an existing meal (Error flow)
 
 Given NutriGo user is logged into the application
