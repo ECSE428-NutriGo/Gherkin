@@ -16,7 +16,7 @@ And a "Successfully edited macronutrient values" message is issued
 Scenario: NutriGo User Attempts to edit a single macronutrient (Alternate flow)
 
 Given a NutriGo user is logged into the application
-And has navigated to the edit goals page
+And has navigated to the user settings page
 When the user enters a new value for a single macronutrient
 And the user saves the updated settings
 Then the system saves the new value in the database
